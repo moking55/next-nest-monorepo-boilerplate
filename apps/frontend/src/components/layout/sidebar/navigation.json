@@ -1,0 +1,25 @@
+[
+  {
+    "label": "แดชบอร์ด",
+    "href": "/dashboard",
+    "icon": "heroicons:chart-bar",
+    "requiredRole": ["admin"]
+  },
+  {
+    "label": "สินค้า",
+    "href": "/product",
+    "icon": "heroicons:cube",
+    "requiredRole": ["admin"]
+  },
+  {
+    "label": "ตั้งค่า",
+    "icon": "heroicons:cog-6-tooth",
+    "requiredRole": ["admin"],
+    "submenus": [
+      {
+        "label": "ทั่วไป",
+        "href": "/settings/general"
+      }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "name": "nestjs-nextjs-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces=*",
+    "dev:all": "concurrently --names \"backend,frontend\" --prefix \"[{name}]\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run start:dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build:all": "npm run build --workspaces",
+    "build:backend": "npm run build --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "install:all": "npm install",
+    "migrate:run": "npm run migrate:run --workspace=backend",
+    "migrate:generate": "npm run migrate:generate --workspace=backend",
+    "migrate:revert": "npm run migrate:revert --workspace=backend",
+    "migrate:show": "npm run migrate:show --workspace=backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "A monorepo template with NestJS backend and Next.js frontend",
+  "dependencies": {
+    "@nestjs/mapped-types": "*",
+    "@nestjs/typeorm": "^11.0.0",
+    "typeorm": "^0.3.28"
+  },
+  "packageManager": "pnpm@9.1.0+sha1.217063ce3fcbf44f3051666f38b810f1ddefee4a"
+}

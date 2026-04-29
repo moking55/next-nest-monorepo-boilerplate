@@ -1,0 +1,48 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.success {
+  background-color: var(--ci-success);
+  color: var(--ci-success-text);
+}
+
+.failed {
+  background-color: var(--ci-failed);
+  color: var(--ci-failed-text);
+}
+
+.inProgress {
+  background-color: var(--ci-in-progress);
+  color: var(--ci-in-progress-text);
+}
+
+.warning {
+  background-color: var(--ci-warning);
+  color: var(--ci-warning-text);
+}
+
+.neutral {
+  background-color: var(--ci-neutral);
+  color: var(--ci-neutral-text);
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
