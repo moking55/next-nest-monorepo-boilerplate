@@ -165,3 +165,8 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 - **Folders**: kebab-case (`user-profiles`).
 - **Files**: kebab-case (`user-profile.controller.ts`).
 - **Classes**: PascalCase (`UserProfileController`).
+
+# Important Notes
+- All assumptions explicit. If context is missing, state assumptions. Don't hallucinate hidden infra or invent unspecified services.
+- Never claim a change is complete without running verification. "I edited the file" is not done. "I edited the file and here's the output" is done. No "should work now." Evidence before assertions, always.
+- Do not suggest code that has been deleted in recent edits. Focus on the current state of the codebase.
