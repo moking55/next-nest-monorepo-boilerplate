@@ -1,19 +1,19 @@
 [
   {
     "label": "แดชบอร์ด",
-    "href": "/dashboard",
+    "href": "/example/dashboard",
     "icon": "heroicons:chart-bar",
     "requiredRole": ["admin"]
   },
   {
     "label": "สินค้า",
-    "href": "/product",
+    "href": "/example/product",
     "icon": "heroicons:cube",
     "requiredRole": ["admin"]
   },
   {
     "label": "Socket Hello",
-    "href": "/hello",
+    "href": "/example/hello",
     "icon": "heroicons:signal",
     "requiredRole": ["admin"]
   },
@@ -24,7 +24,7 @@
     "submenus": [
       {
         "label": "ทั่วไป",
-        "href": "/settings/general"
+        "href": "/example/settings/general"
       }
     ]
   }

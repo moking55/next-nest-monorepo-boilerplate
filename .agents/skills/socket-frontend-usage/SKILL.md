@@ -264,7 +264,7 @@ cd apps/frontend && npx tsc --noEmit
 # Terminal 1: cd apps/backend && npm run dev
 # Terminal 2: cd apps/frontend && pnpm dev
 
-# Navigate to http://localhost:3000/hello
+# Navigate to http://localhost:3000/example/hello
 # Type a name, click "Send Hello"
 # Should see "Hello {name}!" response
 ```
