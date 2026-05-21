@@ -17,6 +17,12 @@ trigger: always_on
     <title>Respect Recent Edits</title>
     <description>Do not suggest code that has been deleted in recent edits. Focus on the current state of the codebase.</description>
   </rule>
+  <rule id="4">
+    <title>Use Named Functions Over Arrow Functions</title>
+    <description>Always use named function declarations instead of arrow functions. This improves code readability, provides better stack traces for debugging, and maintains consistency across the codebase.</description>
+    <bad-example>const handleRequest = (req: Request) => { ... }</bad-example>
+    <good-example>function handleRequest(req: Request) { ... }</good-example>
+  </rule>
 </GoldenRules>
 You are working on the `apps/backend` application within a monorepo. This is a **NestJS** application using **TypeORM** with **PostgreSQL**.
 
@@ -38,6 +44,7 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 - **Role**: Groups related controllers, services, and entities.
 - **Location**: `apps/backend/src/modules/[feature]`
 - **Structure**:
+
   ```
   [feature]/
   ├── dto/
@@ -77,6 +84,7 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 
 - **Inheritance**: MUST inherit from `BaseServiceOperations`.
 - **Pattern**:
+
   ```typescript
   @Injectable()
   export class [Feature]Service extends BaseServiceOperations<
@@ -109,21 +117,21 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 
 ### Step 0: Define Shared Type
 
-1.  **Check Shared Types**: Look in `packages/shared-types/src/model/`.
-2.  **Create Type**: If it doesn't exist, create `packages/shared-types/src/model/[feature].ts`.
+1. **Check Shared Types**: Look in `packages/shared-types/src/model/`.
+2. **Create Type**: If it doesn't exist, create `packages/shared-types/src/model/[feature].ts`.
     - Define the interface (e.g., `export interface [Feature] { ... }`).
-3.  **Export**: Export it in `packages/shared-types/src/index.ts`.
-4.  **Note**: This type serves as the contract between frontend and backend.
+3. **Export**: Export it in `packages/shared-types/src/index.ts`.
+4. **Note**: This type serves as the contract between frontend and backend.
 
 ### Step 1: Create Module Structure
 
-1.  Create folder `src/modules/[feature]`.
-2.  Create subfolders `dto` and `entities`.
+1. Create folder `src/modules/[feature]`.
+2. Create subfolders `dto` and `entities`.
 
 ### Step 2: Define Entity
 
-1.  Create `src/modules/[feature]/entities/[feature].entity.ts`.
-2.  **Implement Interface**: Ensure the entity class implements the interface from `shared-types`.
+1. Create `src/modules/[feature]/entities/[feature].entity.ts`.
+2. **Implement Interface**: Ensure the entity class implements the interface from `shared-types`.
 
     ```typescript
     import { [Feature] as I[Feature] } from 'shared-types';
@@ -137,27 +145,27 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 
 ### Step 3: Define DTOs
 
-1.  Create `create-[feature].dto.ts` and `update-[feature].dto.ts`.
-2.  Add validation (`class-validator`) and Swagger (`@ApiProperty`) decorators.
+1. Create `create-[feature].dto.ts` and `update-[feature].dto.ts`.
+2. Add validation (`class-validator`) and Swagger (`@ApiProperty`) decorators.
 
 ### Step 4: Create Service
 
-1.  Create `src/modules/[feature]/[feature].service.ts`.
-2.  Extend `BaseServiceOperations`.
-3.  Inject Repository.
+1. Create `src/modules/[feature]/[feature].service.ts`.
+2. Extend `BaseServiceOperations`.
+3. Inject Repository.
 
 ### Step 5: Create Controller
 
-1.  Create `src/modules/[feature]/[feature].controller.ts`.
-2.  Extend `BaseControllerOperations`.
-3.  Add Swagger tags.
+1. Create `src/modules/[feature]/[feature].controller.ts`.
+2. Extend `BaseControllerOperations`.
+3. Add Swagger tags.
 
 ### Step 6: Register Module
 
-1.  Create `src/modules/[feature]/[feature].module.ts`.
-2.  Register Controller and Service.
-3.  Import `TypeOrmModule.forFeature([[Feature]Entity])`.
-4.  Add to global `app.module.ts`.
+1. Create `src/modules/[feature]/[feature].module.ts`.
+2. Register Controller and Service.
+3. Import `TypeOrmModule.forFeature([[Feature]Entity])`.
+4. Add to global `app.module.ts`.
 
 ## Code Patterns & Rules
 
@@ -179,4 +187,3 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 - **Folders**: kebab-case (`user-profiles`).
 - **Files**: kebab-case (`user-profile.controller.ts`).
 - **Classes**: PascalCase (`UserProfileController`).
-
