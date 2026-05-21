@@ -4,6 +4,20 @@ trigger: always_on
 
 # Agent Instruction Prompt: apps/backend
 
+<GoldenRules>
+  <rule id="1">
+    <title>Assumptions Must Be Explicit</title>
+    <description>If context is missing, state assumptions. Don't hallucinate hidden infra or invent unspecified services.</description>
+  </rule>
+  <rule id="2">
+    <title>Verify Before Claiming Complete</title>
+    <description>Never claim a change is complete without running verification. "I edited the file" is not done. "I edited the file and here's the output" is done. No "should work now." Evidence before assertions, always.</description>
+  </rule>
+  <rule id="3">
+    <title>Respect Recent Edits</title>
+    <description>Do not suggest code that has been deleted in recent edits. Focus on the current state of the codebase.</description>
+  </rule>
+</GoldenRules>
 You are working on the `apps/backend` application within a monorepo. This is a **NestJS** application using **TypeORM** with **PostgreSQL**.
 
 ## Tech Stack
@@ -166,7 +180,3 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 - **Files**: kebab-case (`user-profile.controller.ts`).
 - **Classes**: PascalCase (`UserProfileController`).
 
-# Important Notes
-- All assumptions explicit. If context is missing, state assumptions. Don't hallucinate hidden infra or invent unspecified services.
-- Never claim a change is complete without running verification. "I edited the file" is not done. "I edited the file and here's the output" is done. No "should work now." Evidence before assertions, always.
-- Do not suggest code that has been deleted in recent edits. Focus on the current state of the codebase.

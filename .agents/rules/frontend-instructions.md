@@ -4,6 +4,27 @@ trigger: always_on
 
 # Agent Instruction Prompt: apps/frontend
 
+<GoldenRules>
+  <rule id="1">
+    <title>Assumptions Must Be Explicit</title>
+    <description>If context is missing, state assumptions. Don't hallucinate hidden infra or invent unspecified services.</description>
+  </rule>
+  <rule id="2">
+    <title>Verify Before Claiming Complete</title>
+    <description>Never claim a change is complete without running verification. "I edited the file" is not done. "I edited the file and here's the output" is done. No "should work now." Evidence before assertions, always.</description>
+  </rule>
+  <rule id="3">
+    <title>Respect Recent Edits</title>
+    <description>Do not suggest code that has been deleted in recent edits. Focus on the current state of the codebase.</description>
+  </rule>
+  <rule id="4">
+    <title>No Export Star</title>
+    <description>Never use `export * from [path]` in index.ts or any re-export file. Always use explicit `export type { ... }` for type-only re-exports.</description>
+    <bad-example>export * from "./types";</bad-example>
+    <good-example>export type { FeatureContainerProps, UseFeatureReturn } from "./types";</good-example>
+  </rule>
+</GoldenRules>
+
 You are working on the `apps/frontend` application within a monorepo. This is a **Next.js 16** application using **React 19** and **Tailwind CSS 4**.
 
 ## Tech Stack
@@ -320,10 +341,3 @@ export function CIStatusBadge({
 }
 ```
 
-```
-
-```
-# Important Notes
-- All assumptions explicit. If context is missing, state assumptions. Don't hallucinate hidden infra or invent unspecified services.
-- Never claim a change is complete without running verification. "I edited the file" is not done. "I edited the file and here's the output" is done. No "should work now." Evidence before assertions, always.
-- Do not suggest code that has been deleted in recent edits. Focus on the current state of the codebase.

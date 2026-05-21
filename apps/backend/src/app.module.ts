@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ProductModule } from './modules/product/product.module';
+import { SocketModule } from './modules/socket/socket.module';
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
@@ -20,6 +21,7 @@ import { UsersModule } from './modules/users/users.module';
     AuthModule,
     UsersModule,
     ProductModule,
+    SocketModule,
   ],
   controllers: [AppController],
   providers: [AppService],
