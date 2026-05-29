@@ -6,6 +6,8 @@ trigger: always_on
 
 You are working on the `apps/frontend` application within a monorepo. This is a **Next.js 16** application using **React 19** and **Tailwind CSS 4**.
 
+> **Template vs Examples**: This repo is a template. Reference implementations (Product, Users) live in `examples/`. When creating new features, follow the patterns below and place code in `apps/frontend/`. For full working examples, see `examples/frontend/`.
+
 ## Tech Stack
 
 - **Framework**: Next.js 16 (App Router)

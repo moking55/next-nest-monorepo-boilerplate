@@ -1,7 +1,17 @@
 # Copilot Instructions
 
-- Monorepo with npm workspaces: backend (NestJS) and frontend (Next.js App Router) plus shared types.
+## Template Structure
+
+This is a **monorepo template** for NestJS + Next.js projects. Reference implementations live in `examples/`.
+
+- **Template core** (`apps/`): Auth, base classes, API proxy, middleware — always included.
+- **Examples** (`examples/`): Product, Users modules — copy into `apps/` when needed.
+- See `examples/README.md` for how to use examples.
+
+## Workspaces
+
 - Root workflows: `npm run dev:all` starts both apps with prefixed logs; `dev:backend`/`dev:frontend` run individually; `build:all`, `lint`, and `test` are workspace-aware.
+- `npm run clean:examples` removes the examples folder.
 - Backend entry boots Nest with CORS, sessions, JSON body limits, compression, global `ValidationPipe`, and `HttpExceptionFilter`; API prefix is `api/v1`; Swagger/Scalar docs are exposed at `/docs` in non-prod ([apps/backend/src/main.ts](apps/backend/src/main.ts#L1-L77)).
 - Config uses `ConfigModule.forRoot({ envFilePath: '.env' })` but `start:dev` passes `.env.development`; DB settings are pulled from `DB_*` env vars; TypeORM auto-loads entities and `synchronize: true` by default ([apps/backend/src/app.module.ts](apps/backend/src/app.module.ts#L1-L36)).
 - Health and root endpoints use JSON:API-style success helpers; mirror that shape for new controllers ([apps/backend/src/app.controller.ts](apps/backend/src/app.controller.ts#L1-L18), [apps/backend/src/common/utils/http-response.ts](apps/backend/src/common/utils/http-response.ts#L1-L200)).

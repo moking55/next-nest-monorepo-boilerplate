@@ -8,6 +8,8 @@ author: Antigravity
 
 Follow this workflow to map a backend API endpoint to the frontend codebase. This workflow assumes a standard Next.js (App Router) structure with a dedicated `hooks` directory.
 
+> **Template vs Examples**: Reference implementations live in `examples/`. See `examples/frontend/hooks/use-products/` for a full working hook example and `examples/backend/modules/product/` for the corresponding backend.
+
 ## Step 1: Analyze Request & Validate Input
 
 1.  **Extract Information**:

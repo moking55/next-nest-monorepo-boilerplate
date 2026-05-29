@@ -2,7 +2,7 @@ import { Optional } from '@nestjs/common';
 import { UserRole } from 'shared-types';
 import { Column, Entity, Index } from 'typeorm';
 
-import { BaseCustomEntity } from '../../../common/utils/base-entity';
+import { BaseCustomEntity } from '@/common/utils/base-entity';
 
 @Entity('users')
 export class UserEntity extends BaseCustomEntity {

@@ -6,7 +6,7 @@ description: Create frontend page structure
 
 Follow these steps to create a new page in any frontend app using the 4-layer architecture (Layout → Screen → Container → Component).
 
-> **Important**: Before creating a page, examine existing pages and containers in the target app to match the project's patterns (routing structure, styling approach, i18n setup, etc.).
+> **Important**: Before creating a page, examine existing pages and containers in the target app to match the project's patterns (routing structure, styling approach, i18n setup, etc.). For a full working example, see `examples/frontend/`.
 
 ## Step 1: Identify Project Patterns
 

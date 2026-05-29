@@ -13,6 +13,8 @@ This skill guides you through creating a new frontend page in the application, e
 3.  **Hook (Logic)**: Separated logic for the container.
 4.  **Component (UI)**: Pure presentational components.
 
+> **Template vs Examples**: Reference implementations live in `examples/frontend/`. See `examples/frontend/containers/product/` for a full working container example.
+
 ## Prerequisites
 
 - **App**: `apps/frontend` (or similar)

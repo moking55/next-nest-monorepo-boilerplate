@@ -5,6 +5,8 @@ description: This prompt is used to create a NestJS module template with TypeORM
 
 Create a module following this template:
 
+> **Template vs Examples**: For full working examples, see `examples/backend/modules/product/` and `examples/backend/modules/users/`.
+
 ````markdown
 # NestJS Module Template (TypeORM)
 

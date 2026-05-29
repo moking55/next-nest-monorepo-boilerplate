@@ -15,6 +15,8 @@ This skill covers **two related but distinct layers**:
 
 Replace `[feature]` with singular kebab-case (e.g. `product`) and `[Feature]` with PascalCase (e.g. `Product`) throughout.
 
+> **Template vs Examples**: Reference implementations live in `examples/`. See `examples/shared-types/` for shared type examples and `examples/backend/modules/` for entity examples.
+
 ---
 
 ## Decision: Shared vs. Backend-Only

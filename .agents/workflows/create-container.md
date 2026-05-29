@@ -11,6 +11,8 @@ This workflow guides you through creating a new **Container** component. Contain
 > - **Separation of Concerns**: Logic MUST be extracted into a custom hook (`use{Name}`).
 > - **Structure**: MUST follow the standard file structure including `index.ts`, component, styles, hook, and types.
 > - **Optimization**: Render components MUST be wrapped in `memo`.
+>
+> For a full working example, see `examples/frontend/containers/product/`.
 
 ---
 

@@ -13,7 +13,7 @@ import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 
 import { BaseControllerOperations } from '@/common/utils/base-operation';
 
-import { RequireAuth } from '../auth/decorators/require-auth.decorator';
+import { RequireAuth } from '../../auth/decorators/require-auth.decorator';
 
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';

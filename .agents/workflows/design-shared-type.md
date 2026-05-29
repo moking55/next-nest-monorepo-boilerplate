@@ -6,6 +6,8 @@ description: Design and create shared types in packages/shared-types
 
 Follow these steps to design and create a new shared type for use across frontend and backend.
 
+> **Template vs Examples**: Reference type implementations live in `examples/shared-types/`. See `examples/shared-types/src/` for examples of enums and models.
+
 ## Step 1: Understand Requirements
 
 Gather information from the user:
@@ -154,8 +156,6 @@ export type { {EntityName}, {EntityName}Status } from './model/{entity-name}';
 ```
 
 ## Step 6: Verify Integration
-
-// turbo
 
 1. Run `npm run build -w shared-types` to ensure types compile
 2. Check that the type is accessible from other packages:

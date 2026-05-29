@@ -37,7 +37,6 @@ export class UsersService extends BaseServiceOperations<
     message: string;
     data: UserEntity;
   }> {
-    // Check for unique username
     const existing = await this.userRepository.findOne({
       where: { username: createDto.username },
     });
@@ -46,7 +45,6 @@ export class UsersService extends BaseServiceOperations<
       throw new ConflictException('Username already exists');
     }
 
-    // Hash password & Map DTO to Entity
     const hashedPassword = await bcrypt.hash(createDto.password, 10);
     const newUser = this.userRepository.create({
       ...createDto,
@@ -76,7 +74,6 @@ export class UsersService extends BaseServiceOperations<
       throw new NotFoundException('User not found');
     }
 
-    // Check for username conflicts if updating
     if (updateDto.username && updateDto.username !== record.username) {
       const existing = await this.userRepository.findOne({
         where: { username: updateDto.username },

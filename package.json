@@ -21,7 +21,8 @@
     "migrate:run": "npm run migrate:run --workspace=backend",
     "migrate:generate": "npm run migrate:generate --workspace=backend",
     "migrate:revert": "npm run migrate:revert --workspace=backend",
-    "migrate:show": "npm run migrate:show --workspace=backend"
+    "migrate:show": "npm run migrate:show --workspace=backend",
+    "clean:examples": "rm -rf examples"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",

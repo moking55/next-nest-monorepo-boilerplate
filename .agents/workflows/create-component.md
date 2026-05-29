@@ -6,7 +6,7 @@ description: Create a new component in any frontend app
 
 Follow these steps to create a new UI component in any frontend app.
 
-> **Important**: Before creating a component, examine existing components in the target app to match the project's styling approach (Tailwind CSS, CSS Modules, MUI, etc.).
+> **Important**: Before creating a component, examine existing components in the target app to match the project's styling approach (Tailwind CSS, CSS Modules, MUI, etc.). For examples, see `examples/frontend/`.
 
 ## Step 1: Identify Project Patterns
 

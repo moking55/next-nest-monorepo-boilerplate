@@ -6,8 +6,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { ProductModule } from './modules/product/product.module';
-import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -18,8 +16,6 @@ import { UsersModule } from './modules/users/users.module';
     ScheduleModule.forRoot(),
     DatabaseModule,
     AuthModule,
-    UsersModule,
-    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],

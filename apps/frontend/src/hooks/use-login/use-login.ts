@@ -49,8 +49,8 @@ export default function useLogin() {
         const params = new URLSearchParams(window.location.search);
         const callbackUrl = params.get("callbackUrl");
 
-        // Redirect to callbackUrl if present, otherwise to product page
-        router.push(callbackUrl || "/product");
+        // Redirect to callbackUrl if present, otherwise to home
+        router.push(callbackUrl || "/");
       } else {
         setState((draft) => {
           draft.error = result.error || "Invalid credentials";

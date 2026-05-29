@@ -8,6 +8,8 @@ argument-hint: 'Feature name and whether it is authenticated or public.'
 
 Use this skill to keep the Next.js App Router structure consistent with the current repo conventions.
 
+> **Template vs Examples**: Reference implementations live in `examples/frontend/`. See `examples/frontend/` for full working examples of pages, containers, and hooks.
+
 ## When to Use
 - Create a new screen or route under `app/(screens)`
 - Add or refactor a container in `src/containers`

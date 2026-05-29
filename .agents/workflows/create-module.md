@@ -1,12 +1,12 @@
 ---
-description: Create a NestJS module with TypeORM in backend-redesign app
+description: Create a NestJS module with TypeORM in backend app
 ---
 
 # Create NestJS Module
 
-Follow these steps to create a new NestJS module with TypeORM integration in `apps/backend-redesign`.
+Follow these steps to create a new NestJS module with TypeORM integration in `apps/backend`.
 
-> **Important**: This workflow uses `MongoRepository` and UUID primary keys. Check shared-types first for existing interfaces.
+> **Important**: Check shared-types first for existing interfaces. For a full working example, see `examples/backend/modules/product/` and `examples/backend/modules/users/`.
 
 ## Step 1: Check Shared Types
 
@@ -31,7 +31,7 @@ export interface {EntityName} {
 Create folder structure:
 
 ```
-apps/backend-redesign/src/modules/{module-name}/
+apps/backend/src/modules/{module-name}/
 ├── dto/
 │   ├── create-{entity-name}.dto.ts
 │   └── update-{entity-name}.dto.ts
@@ -177,7 +177,7 @@ Create `{module-name}.service.ts`:
 ```typescript
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MongoRepository } from 'typeorm';
+import { Repository } from 'typeorm';
 
 import { BaseServiceOperations } from '@/common/utils/base-operation';
 
@@ -193,7 +193,7 @@ export class {ModuleName}Service extends BaseServiceOperations<
 > {
   constructor(
     @InjectRepository({EntityName})
-    private readonly {entity}Repository: MongoRepository<{EntityName}>,
+    private readonly {entity}Repository: Repository<{EntityName}>,
   ) {
     super('{entity}', {entity}Repository);
   }
@@ -358,8 +358,6 @@ export class AppModule {}
 
 ## Verification
 
-// turbo
-
-1. Run `npm run dev:backend-redesign` to start the server
-2. Check Swagger UI at `http://localhost:3000/api` for new endpoints
+1. Run `npm run dev:backend` to start the server
+2. Check Swagger UI at `http://localhost:8000/docs` for new endpoints
 3. Test CRUD operations via Swagger or API client

@@ -6,6 +6,8 @@ trigger: always_on
 
 You are working on the `apps/backend` application within a monorepo. This is a **NestJS** application using **TypeORM** with **PostgreSQL**.
 
+> **Template vs Examples**: This repo is a template. Reference implementations (Product, Users) live in `examples/`. When creating new features, follow the patterns below and place modules in `apps/backend/src/modules/`. For full working examples, see `examples/backend/modules/`.
+
 ## Tech Stack
 
 - **Framework**: NestJS 11

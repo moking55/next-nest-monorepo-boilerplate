@@ -8,6 +8,8 @@ author: Antigravity
 
 This skill defines the strict architectural pattern for `apps/backend` modules in the monorepo.
 
+> **Template vs Examples**: This repo is a template. Reference implementations live in `examples/backend/modules/`. When creating a new feature, follow the patterns below and place your module in `apps/backend/src/modules/[feature]`.
+
 ## 1. Module Structure
 
 Each feature (e.g., `users`, `products`) is a self-contained module at `apps/backend/src/modules/[feature]`.
@@ -27,6 +29,8 @@ Each feature (e.g., `users`, `products`) is a self-contained module at `apps/bac
 ├── [feature].module.ts
 └── [feature].service.ts
 ```
+
+**For full working examples**, see `examples/backend/modules/product/` and `examples/backend/modules/users/`.
 
 ## 2. Controller (`[feature].controller.ts`)
 

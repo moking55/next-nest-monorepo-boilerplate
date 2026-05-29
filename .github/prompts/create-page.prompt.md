@@ -7,6 +7,8 @@ agent: agent
 ## Task Overview
 Create a new page following the 4-layer architecture pattern (Layout → Screen → Container → Component) with proper file structure and naming conventions.
 
+> **Template vs Examples**: For a full working example, see `examples/frontend/`.
+
 ## Requirements
 
 ### 1. Page Creation (Screen Layer)

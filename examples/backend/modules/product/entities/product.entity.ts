@@ -1,6 +1,6 @@
 import { Column, Entity, Index } from 'typeorm';
 
-import { BaseCustomEntity } from '../../../common/utils/base-entity';
+import { BaseCustomEntity } from '@/common/utils/base-entity';
 
 import type { Product as IProduct } from 'shared-types';
 import type { ProductStatus } from 'shared-types';

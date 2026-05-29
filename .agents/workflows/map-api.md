@@ -6,6 +6,8 @@ description: Map an API endpoint to the codebase patterns (API function + Hook)
 
 Follow this workflow to map a backend API endpoint to the frontend codebase. This workflow assumes a standard Next.js (App Router) structure with a dedicated `hooks` directory.
 
+> **Template vs Examples**: For a full working example, see `examples/frontend/hooks/use-products/` and `examples/backend/modules/product/`.
+
 ## Step 1: Analyze Request & Validate Input
 
 **Goal**: Ensure all necessary information is present before generating code.

@@ -8,6 +8,8 @@ author: Antigravity
 
 Follow these steps to create a new frontend page in the application.
 
+> **Template vs Examples**: Reference implementations live in `examples/frontend/`. See `examples/frontend/containers/product/` and `examples/frontend/hooks/use-products/` for full working examples.
+
 ## 1. Create Page (Server Component)
 
 - Create a `page.tsx` inside a module folder within `app/(screens)/`.
