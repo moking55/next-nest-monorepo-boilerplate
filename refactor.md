@@ -47,12 +47,17 @@ apps/
 │   │   │       └── page.tsx             ← keep (auth is infrastructure)
 │   │   └── src/
 │   │       ├── components/login-form/   ← keep
+│   │       ├── components/layout/       ← keep (sidebar, header)
+│   │       ├── components/ui/           ← keep (shadcn/ui components)
 │   │       ├── containers/login/        ← keep
+│   │       ├── contexts/socket-context.tsx ← keep (socket infrastructure)
 │   │       ├── hooks/use-login/         ← keep
-│   │       └── hooks/use-api/           ← keep (core infrastructure)
+│   │       ├── hooks/use-api/           ← keep (core infrastructure)
+│   │       └── hooks/use-socket/        ← keep (socket infrastructure)
 │   ├── backend/
 │   │   └── src/modules/
-│   │       └── auth/                    ← keep (core infrastructure)
+│   │       ├── auth/                    ← keep (core infrastructure)
+│   │       └── socket/                  ← keep (socket infrastructure)
 │   └── packages/
 │       └── shared-types/
 │           └── src/
@@ -78,19 +83,26 @@ apps/
 │   │           └── entities/
 │   ├── frontend/
 │   │   ├── app/(screens)/(authenticated)/
-│   │   │   └── product/
-│   │   │       └── page.tsx
+│   │   │   ├── product/page.tsx
+│   │   │   ├── hello/page.tsx
+│   │   │   ├── dashboard/page.tsx
+│   │   │   └── settings/general/page.tsx
 │   │   ├── components/
-│   │   │   └── (example components)
+│   │   │   └── hello-form/
 │   │   ├── containers/
-│   │   │   └── product/
-│   │   │       ├── product-container.tsx
-│   │   │       ├── types.ts
-│   │   │       └── index.ts
+│   │   │   ├── product/
+│   │   │   │   ├── product-container.tsx
+│   │   │   │   ├── types.ts
+│   │   │   │   └── index.ts
+│   │   │   └── hello/
+│   │   │       └── hello-container.tsx
 │   │   └── hooks/
-│   │       └── use-products/
-│   │           ├── use-products.ts
-│   │           ├── types.ts
+│   │       ├── use-products/
+│   │       │   ├── use-products.ts
+│   │       │   ├── types.ts
+│   │       │   └── index.ts
+│   │       └── use-hello/
+│   │           ├── use-hello.ts
 │   │           └── index.ts
 │   └── shared-types/
 │       └── src/
@@ -328,15 +340,18 @@ Structure:
 
 After refactoring:
 
-- [ ] `npm run dev:all` starts without errors
-- [ ] Login flow works end-to-end
-- [ ] Authenticated layout renders (sidebar + header)
-- [ ] No broken imports in `apps/frontend` or `apps/backend`
-- [ ] No references to Product/Users in `apps/` (only in `examples/`)
-- [ ] `packages/shared-types` compiles without Product/Users types
-- [ ] All skills reference `examples/` correctly
-- [ ] Dockerfiles build without examples
-- [ ] `examples/README.md` explains how to copy features back
+- [x] `npm run dev:all` starts without errors
+- [x] Login flow works end-to-end
+- [x] Authenticated layout renders (sidebar + header)
+- [x] No broken imports in `apps/frontend` or `apps/backend`
+- [x] No references to Product/Users in `apps/` (only in `examples/`)
+- [x] `packages/shared-types` compiles without Product/Users types
+- [x] All skills reference `examples/` correctly
+- [x] Dockerfiles build without examples
+- [x] `examples/README.md` explains how to copy features back
+- [x] No example files left in `apps/` (hello, hello-form, use-hello removed)
+- [x] SocketModule incorporated as template infrastructure
+- [x] Merge with origin/main completed successfully
 
 ---
 
