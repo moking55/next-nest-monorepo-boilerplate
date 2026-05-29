@@ -97,6 +97,27 @@ function updateName(name) {
   - `types.ts`
   - `index.ts`
 
+## Golden Rules (XML)
+
+```xml
+<golden-rules>
+  <rule id="no-export-star">
+    <title>Do Not Use export *</title>
+    <description>
+      Never use `export * from [path]` in index.ts or any re-export file.
+      Always use explicit `export type { ... }` for type-only re-exports.
+    </description>
+    <bad-example>export * from "./types";</bad-example>
+    <good-example>export type { [Module]ContainerProps } from "./types";</good-example>
+    <rationale>
+      `export *` pollutes the namespace, makes types hard to trace,
+      and can cause circular dependency issues. Explicit `export type`
+      ensures only intended types are exposed and improves IDE autocomplete.
+    </rationale>
+  </rule>
+</golden-rules>
+```
+
 ## Summary of Rules
 
 1. **Structure**: 3-4 files per folder (`[name].tsx`, `types.ts`, `index.ts`, optional `helper.ts`).

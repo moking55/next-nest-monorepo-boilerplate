@@ -38,6 +38,9 @@ cp examples/shared-types/src/model/product.ts packages/shared-types/src/model/
 | `backend/modules/users` | User management with auth integration, bcrypt password hashing |
 | `frontend/containers/product` | Product listing page with useImmer state management |
 | `frontend/hooks/use-products` | API hook using `useApi` + `ky` for product fetching |
+| `frontend/containers/hello` | Socket.io hello example with real-time communication |
+| `frontend/components/hello-form` | Socket.io hello form UI component |
+| `frontend/hooks/use-hello` | Socket.io hello hook with useImmer state |
 | `shared-types/` | Product and OrderStatus types shared between frontend/backend |
 
 ## Template Core (not in examples)
@@ -45,7 +48,9 @@ cp examples/shared-types/src/model/product.ts packages/shared-types/src/model/
 These are always included in the template:
 
 - **Auth module** — JWT login, Passport strategies, guards
+- **Socket module** — WebSocket gateway, service, and context provider
 - **Base classes** — `BaseControllerOperations`, `BaseServiceOperations`, `BaseCustomEntity`
 - **API proxy** — `/api/proxy/[...path]` catch-all route
 - **Auth middleware** — cookie-based role routing
+- **Socket context** — React context for real-time communication
 - **Shared types** — `UserRole`, `Users`, `AuthResponse`, `LoginRequest`

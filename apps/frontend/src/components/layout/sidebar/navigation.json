@@ -6,6 +6,12 @@
     "requiredRole": ["admin"]
   },
   {
+    "label": "Socket Hello",
+    "href": "/example/hello",
+    "icon": "heroicons:signal",
+    "requiredRole": ["admin"]
+  },
+  {
     "label": "ตั้งค่า",
     "icon": "heroicons:cog-6-tooth",
     "requiredRole": ["admin"],

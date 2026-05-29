@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import clsx from "clsx";
+import { SocketProvider } from "@/contexts/socket-context";
 
 import "./globals.css";
 
@@ -24,9 +25,11 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en">
       <body className={clsx(prompt.variable, "antialiased")}>
-        <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
-          {children}
-        </main>
+        <SocketProvider>
+          <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            {children}
+          </main>
+        </SocketProvider>
       </body>
     </html>
   );

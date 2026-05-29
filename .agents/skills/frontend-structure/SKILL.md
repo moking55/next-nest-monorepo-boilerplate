@@ -113,6 +113,27 @@ export default function useFeature(): UseFeatureReturn {
 - Use absolute imports via `@/`.
 - Use Tailwind utilities for quick styling and CSS modules for layout or complex styling.
 
+## Golden Rules (XML)
+
+```xml
+<golden-rules>
+  <rule id="no-export-star">
+    <title>Do Not Use export *</title>
+    <description>
+      Never use `export * from [path]` in index.ts or any re-export file.
+      Always use explicit `export type { ... }` for type-only re-exports.
+    </description>
+    <bad-example>export * from "./types";</bad-example>
+    <good-example>export type { FeatureContainerProps, UseFeatureReturn } from "./types";</good-example>
+    <rationale>
+      `export *` pollutes the namespace, makes types hard to trace,
+      and can cause circular dependency issues. Explicit `export type`
+      ensures only intended types are exposed and improves IDE autocomplete.
+    </rationale>
+  </rule>
+</golden-rules>
+```
+
 ## Validation Checklist
 - `page.tsx` is server-only and renders only the container.
 - Every container has a dedicated `use-[feature].ts` hook.

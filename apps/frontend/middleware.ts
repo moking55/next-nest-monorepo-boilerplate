@@ -35,7 +35,7 @@ export function middleware(request: NextRequest) {
     }
 
     // Default fall-back
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL("/example/product", request.url));
   }
 
   return NextResponse.next();

@@ -174,6 +174,27 @@ export default function use[HookName]() {
 
 Use for reusable UI elements. Follow the same 3-4 file structure (`tsx`, `types.ts`, `index.ts`) if complex.
 
+## Golden Rules (XML)
+
+```xml
+<golden-rules>
+  <rule id="no-export-star">
+    <title>Do Not Use export *</title>
+    <description>
+      Never use `export * from [path]` in index.ts or any re-export file.
+      Always use explicit `export type { ... }` for type-only re-exports.
+    </description>
+    <bad-example>export * from "./types";</bad-example>
+    <good-example>export type { [FeatureName]ContainerProps } from "./types";</good-example>
+    <rationale>
+      `export *` pollutes the namespace, makes types hard to trace,
+      and can cause circular dependency issues. Explicit `export type`
+      ensures only intended types are exposed and improves IDE autocomplete.
+    </rationale>
+  </rule>
+</golden-rules>
+```
+
 ## Rules & Conventions
 
 1.  **Files**: Kebab-case (`user-profile.tsx`).
