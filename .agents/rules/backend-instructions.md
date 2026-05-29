@@ -169,6 +169,21 @@ Follow the standard NestJS module architecture. Each feature is encapsulated in 
 3. Import `TypeOrmModule.forFeature([[Feature]Entity])`.
 4. Add to global `app.module.ts`.
 
+### Step 7: Generate & Run Migration
+
+```bash
+# Generate migration from entity changes
+npm run migrate:generate --workspace=backend
+
+# Run the migration
+npm run migrate:run --workspace=backend
+
+# Verify migration
+npm run migrate:show --workspace=backend
+```
+
+**IMPORTANT**: Always run migration after creating or modifying entities. The migration file is auto-generated in `apps/backend/src/database/migrations/`.
+
 ## Code Patterns & Rules
 
 ### 1. Shared Types First
