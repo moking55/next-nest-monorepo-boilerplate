@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname, "../../"),
   },
+  transpilePackages: ["frontend-shared"],
 };
 
 export default nextConfig;

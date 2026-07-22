@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 import type { InputProps } from "./types";
 import { memo } from "react";
