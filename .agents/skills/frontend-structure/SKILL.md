@@ -13,7 +13,7 @@ Use this skill to keep the Next.js App Router structure consistent with the curr
 ## When to Use
 - Create a new screen or route under `app/(screens)`
 - Add or refactor a container in `src/containers`
-- Build presentational components in `src/components`
+- Build presentational components in `src/components` (app-specific) or `packages/frontend-shared/src/components` (generic, reused across apps)
 - Add or reuse hooks in `src/hooks`
 
 ## Procedure
@@ -99,9 +99,11 @@ export default function useFeature(): UseFeatureReturn {
 ```
 
 ### 4. Create presentational components
-- **Location**: `src/components/[component]/`
-- **Files**: `[component].tsx`, `types.ts`, `index.ts`, optional `*.module.css`
+- **App-specific/feature component** (used only by this app): `src/components/[component]/`
+- **Generic/reusable component** (usable by other frontend apps too, e.g. button, card, input, data-table): `packages/frontend-shared/src/components/[component]/` — import it in apps/frontend as `import { X } from "frontend-shared"`, never re-implement locally.
+- **Files**: `[component].tsx`, `types.ts`, `index.ts`, optional `*.module.css` — same structure in both locations.
 - Keep UI components presentational and drive behavior via props.
+- `frontend-shared` is source-only (no build step) — apps/frontend consumes it via Next's `transpilePackages`. No `@/` aliases inside `frontend-shared`; its internal imports must be relative.
 
 ### 5. Create or reuse hooks
 - Every container must have a dedicated hook in its container folder (`use-[feature].ts`).

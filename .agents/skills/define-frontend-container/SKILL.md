@@ -170,9 +170,10 @@ export default function use[HookName]() {
 
 ## Step 5: (Optional) Create UI Components
 
-**Location**: `src/components/ui/[component-name]/`
+- **Generic/reusable across apps** (button, card, input, data-table, etc.): `packages/frontend-shared/src/components/[component-name]/` — consume via `import { X } from "frontend-shared"`. This package is source-only (no build step), transpiled by Next's `transpilePackages`; internal imports must be relative, no `@/` aliases.
+- **App-specific/feature-only**: `src/components/[component-name]/`.
 
-Use for reusable UI elements. Follow the same 3-4 file structure (`tsx`, `types.ts`, `index.ts`) if complex.
+Follow the same 3-4 file structure (`tsx`, `types.ts`, `index.ts`) if complex.
 
 ## Golden Rules (XML)
 
