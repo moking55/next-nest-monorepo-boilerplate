@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useEffect, useMemo } from "react";
+import { useImmer } from "use-immer";
 import { Socket, io } from "socket.io-client";
 
 export type SocketContextType = {
@@ -24,8 +25,8 @@ type SocketProviderProps = {
 };
 
 export function SocketProvider({ children }: SocketProviderProps) {
-  const [socket, setSocket] = useState<Socket | null>(null);
-  const [connected, setConnected] = useState(false);
+  const [socket, setSocket] = useImmer<Socket | null>(null);
+  const [connected, setConnected] = useImmer(false);
 
   useEffect(() => {
     const url = process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:3001";
@@ -48,7 +49,7 @@ export function SocketProvider({ children }: SocketProviderProps) {
     return () => {
       newSocket.disconnect();
     };
-  }, []);
+  }, [setConnected, setSocket]);
 
   const on = useCallback(
     (event: string, callback: (...args: unknown[]) => void) => {

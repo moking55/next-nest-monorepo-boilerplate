@@ -115,6 +115,8 @@ Strictly follow the **Layout → Screen → Container → Component** architectu
 
 Follow this order to build a new feature page (e.g., `create-employee`).
 
+> **For complete end-to-end features**: Use the `add-feature` skill which includes shared types, entity, migration, backend module, and frontend page.
+
 ### Step 1: Define Types & API Hook
 
 Create the hook first to define data shape and server interaction.

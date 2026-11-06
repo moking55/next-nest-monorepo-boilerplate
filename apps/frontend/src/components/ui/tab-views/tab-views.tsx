@@ -1,13 +1,14 @@
 "use client";
 
-import { memo, useState } from "react";
+import { memo } from "react";
+import { useImmer } from "use-immer";
 import { InlineIcon } from "@iconify/react";
 import clsx from "clsx";
 import styles from "./tab-views.module.css";
 import type { TabViewsProps } from "./types";
 
 function TabViews({ defaultTab, tabs }: TabViewsProps) {
-  const [activeKey, setActiveKey] = useState<string>(
+  const [activeKey, setActiveKey] = useImmer<string>(
     defaultTab ?? tabs[0]?.key ?? "",
   );
 
