@@ -2,7 +2,8 @@
 
 import clsx from "clsx";
 import { ChevronDown, LogOut } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useImmer } from "use-immer";
 import { useRouter } from "next/navigation";
 import styles from "./header.module.css";
 import type { HeaderProps } from "./types";
@@ -10,8 +11,8 @@ import type { HeaderProps } from "./types";
 export default function Header({ className }: HeaderProps) {
   const router = useRouter();
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [isOpen, setIsOpen] = useImmer(false);
+  const [isLoggingOut, setIsLoggingOut] = useImmer(false);
 
   const displayName = "Admin";
   const initials = displayName.slice(0, 1).toUpperCase();
@@ -38,7 +39,7 @@ export default function Header({ className }: HeaderProps) {
       window.removeEventListener("mousedown", handlePointerDown);
       window.removeEventListener("keydown", handleEscape);
     };
-  }, [isOpen]);
+  }, [isOpen, setIsOpen]);
 
   async function handleLogout() {
     if (isLoggingOut) return;
@@ -67,7 +68,7 @@ export default function Header({ className }: HeaderProps) {
           <button
             type="button"
             className={clsx(styles.userProfile, isOpen && styles.userProfileActive)}
-            onClick={() => setIsOpen((prev) => !prev)}
+            onClick={() => setIsOpen(!isOpen)}
             aria-haspopup="menu"
             aria-expanded={isOpen}
             aria-label="Open profile menu"

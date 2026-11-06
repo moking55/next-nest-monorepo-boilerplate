@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import { useImmer } from "use-immer";
 import { useRouter } from "next/navigation";
 import { LoginState } from "./types";
@@ -13,7 +13,7 @@ export default function useLogin() {
     password: "",
     error: null,
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useImmer(false);
 
   const handleFieldChange = useCallback(
     (field: keyof LoginState, value: string) => {
@@ -63,7 +63,7 @@ export default function useLogin() {
     } finally {
       setLoading(false);
     }
-  }, [state.username, state.password, setState, router]);
+  }, [state.username, state.password, setState, setLoading, router]);
 
   return {
     error: state.error,
